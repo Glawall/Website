@@ -72,7 +72,9 @@ h3 {
     background: var(--bg-primary);
     padding: 6rem 0;
     margin-top: 5rem;
-
+    min-height: calc(100vh - 5rem);
+    display: flex;
+    align-items: center;
 }
 
 .about-grid {
@@ -152,8 +154,10 @@ h3 {
 /* Projects Section */
 #projects {
     background: var(--bg-primary);
-    margin-top: -4rem;
-    scroll-margin-top: 100px;
+    margin-top: -8rem;
+    scroll-margin-top: 10px;
+    min-height: 100vh;
+    padding-top: 5rem;
 }
 
 #projects h2 {
@@ -308,6 +312,7 @@ h3 {
 #contact {
     background: var(--bg-primary);
     padding: 2rem 0;
+    margin-top: -4rem;
 }
 
 #contact h2 {
@@ -381,7 +386,6 @@ nav {
 
 .nav-center {
     position: absolute;
-    /* Position in center of screen */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -454,7 +458,6 @@ nav {
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
-    line-height: 0.5rem;
 }
 
 .btn-small {
@@ -469,6 +472,15 @@ nav {
     color: var(--text-primary);
     margin: 0;
     border: 2px solid transparent;
+    line-height: 0;
+}
+
+.btn-small i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 .btn-small:hover {
