@@ -26,10 +26,10 @@
             <div class="nav-right">
                 <div class="nav-buttons">
                     <div class="social-buttons">
-                        <a href="https://github.com/yourusername" class="btn btn-small" target="_blank">
+                        <a href="https://github.com/Glawall" class="btn btn-small" target="_blank">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/yourprofile" class="btn btn-small" target="_blank">
+                        <a href="https://linkedin.com/in/greg-wall-2874574a/" class="btn btn-small" target="_blank">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -109,7 +109,7 @@
                             <a href="https://relay-news.co.uk" class="btn btn-outline" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
-                            <a href="#" class="btn btn-outline" target="_blank">
+                            <a href="https://github.com/Glawall/NC-NEWS" class="btn btn-outline" target="_blank">
                                 <i class="fab fa-github"></i> View Code
                             </a>
                         </div>
@@ -152,7 +152,7 @@
                             <a href="https://good-neighbour.uk/" class="btn btn-outline" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
-                            <a href="#" class="btn btn-outline" target="_blank">GitHub</a>
+                            <a href="https://github.com/Glawall/GoodNeighbour" class="btn btn-outline" target="_blank">GitHub</a>
                         </div>
                         <div class="tech-stack">
                             <span>React</span>
@@ -161,6 +161,13 @@
                             <span>Google Calendar API</span>
                             <span>Express</span>
                             <span>JWT</span>
+                            <span>Render</span>
+                            <span>GH-Pages</span>
+                            <span>RESTful APIs</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                            <span>TDD & OOP</span>
+                            <span>Database Design</span>
                         </div>
                     </div>
                 </div>
@@ -187,7 +194,7 @@
                             <a href="https://theeventhivecouk.co.uk/" class="btn btn-outline" target="_blank">
                                 <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
-                            <a href="#" class="btn btn-outline" target="_blank">GitHub</a>
+                            <a href="https://github.com/Glawall/Launchpad-Events" class="btn btn-outline" target="_blank">GitHub</a>
                         </div>
                         <div class="tech-stack">
                             <span>React</span>
@@ -196,6 +203,13 @@
                             <span>Express</span>
                             <span>JWT</span>
                             <span>Google OAuth</span>
+                            <span>Render</span>
+                            <span>GH-Pages</span>
+                            <span>RESTful APIs</span>
+                            <span>CSS</span>
+                            <span>HTML</span>
+                            <span>TDD & OOP</span>
+                            <span>Database Design</span>
                         </div>
                     </div>
                 </div>
@@ -257,11 +271,30 @@
             projects.forEach(project => {
                 project.classList.remove('active');
                 project.style.opacity = '0';
+                                const carousel = project.querySelector('.carousel');
+                if (carousel.interval) {
+                    clearInterval(carousel.interval);
+                    carousel.interval = null;
+                }
             });
+            
             projects[index].classList.add('active');
             setTimeout(() => {
                 projects[index].style.opacity = '1';
+                const activeCarousel = projects[index].querySelector('.carousel');
+                startCarousel(activeCarousel);
             }, 50);
+        }
+        
+        function startCarousel(carousel) {
+            const images = carousel.querySelectorAll('img');
+            let currentIndex = 0;
+            
+            carousel.interval = setInterval(() => {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }, 3000);
         }
         
         document.querySelector('.prev-btn').addEventListener('click', () => {
@@ -275,18 +308,10 @@
         });
         
         function initCarousels() {
-            const carousels = document.querySelectorAll('.carousel');
-            
-            carousels.forEach(carousel => {
-                const images = carousel.querySelectorAll('img');
-                let currentIndex = 0;
-                
-                setInterval(() => {
-                    images[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % images.length;
-                    images[currentIndex].classList.add('active');
-                }, 3000);
-            });
+            const activeCarousel = document.querySelector('.project-card.active .carousel');
+            if (activeCarousel) {
+                startCarousel(activeCarousel);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
