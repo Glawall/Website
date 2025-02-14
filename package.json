@@ -1,0 +1,10 @@
+{
+  "homepage": "https://greg-wall.co.uk",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  },
+  "scripts": {
+    "predeploy": "rm -rf dist && mkdir dist && rsync -a --exclude dist --exclude .git --exclude node_modules ./ dist/ && cp CNAME dist/",
+    "deploy": "gh-pages -d dist"
+  }
+}
