@@ -236,10 +236,18 @@ h3 {
 
 .project-links {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
+.project-links .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.login-details {
+    white-space: nowrap;
+}
 
 @media (max-width: 1024px) {
     .project-card {
@@ -365,6 +373,11 @@ h3 {
         width: 80%;
         margin: 0 auto;
     }
+
+    .project-links .btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -374,21 +387,13 @@ h3 {
     }
 
     .project-links {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
+        gap: 0.4rem;
     }
 
     .project-links .btn {
         font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-        scale: 0.8;
-    }
-
-    .project-links .btn i {
-        font-size: 0.9rem;
-        margin-right: 0.3rem;
+        padding: 0.3rem 0.6rem;
+        scale: 0.9;
     }
 
     .project-info {
@@ -472,6 +477,16 @@ h3 {
     #contact h2 {
         font-size: 1.5rem;
         margin-bottom: 0.8rem;
+    }
+
+    .project-links {
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    .login-details {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
     }
 }
 
